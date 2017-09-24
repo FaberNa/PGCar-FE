@@ -1,0 +1,58 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Box</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-input placeholder="Marca" [(ngModel)]="marca"  (ngModelChange)="myChange($event)" clearInput></ion-input>
+
+    </ion-item>
+  </ion-list>
+  <button ion-button icon-end (click)="open($event)">
+    Right Icon
+    <ion-icon name="star"></ion-icon>
+  </button>
+</ion-content> -->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>User Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <form [formGroup]="myForm"  (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label floating primary>Name</ion-label>
+        <ion-input [(ngModel)]="userInfo.name" formControlName="name" type="text"
+                   id="name" spellcheck="false" autocapitalize="off">
+        </ion-input>
+      </ion-item>
+      <p *ngIf="!isValid('name')" danger padding-left>Invalid Name</p>
+      <ion-item>
+        <ion-label floating primary>Email</ion-label>
+        <ion-input [(ngModel)]="userInfo.email" formControlName="email"
+                   type="text" id="email" spellcheck="false" autocapitalize="off">
+        </ion-input>
+      </ion-item>
+      <p *ngIf="!isValid('email')" danger padding-left>Invalid Email</p>
+      <ion-item>
+        <ion-label floating primary>Phone</ion-label>
+        <ion-input [(ngModel)]="userInfo.phone" formControlName="phone" type="text" id="phone">
+        </ion-input>
+      </ion-item>
+      <p *ngIf="!isValid('phone')" danger padding-left>Invalid Phone</p>
+      <button type="submit" block primary [disabled]="!myForm.valid">Submit</button>
+    </form>
+  </ion-list>
+</ion-content>

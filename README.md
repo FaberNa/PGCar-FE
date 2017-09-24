@@ -24,3 +24,12 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+For use Native storage in browser 
+ionic cordova run browser
+
+For deploy app on device android, please connect device and enubla debug mode 
+ionic cordova run android --device
+
+For run with emulator
+ionic cordova run --emulator android
+
